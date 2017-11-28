@@ -331,7 +331,7 @@ public class TaskController {
                 AmazonS3 s3client = new AmazonS3Client(DefaultAWSCredentialsProviderChain.getInstance());
                 Bucket b = null;
 
-                String bucketname = "csye6225-fall2017-csye-nasp.com";
+                String bucketname = "csye6225-fall2017-csye-parakh.com";
 
 //                 String bucketname = "csye6225nasp";
 
@@ -351,11 +351,21 @@ public class TaskController {
                 String key = files.getOriginalFilename();
 
                 meta.setContentLength(fileSize);
+<<<<<<< HEAD
                 if (s3client.doesBucketExist(bucketname)) {
                     s3client.putObject(new PutObjectRequest("csye6225-fall2017-csye-nasp.com", key, is, meta));
                 } else {
                     s3client.createBucket("csye6225-fall2017-csye-nasp.com");
                     s3client.putObject(new PutObjectRequest("csye6225-fall2017-csye-nasp.com", key, is, meta));
+=======
+                if (s3client.doesBucketExist(bucketname)){
+                    s3client.putObject(new PutObjectRequest("csye6225-fall2017-csye-parakh.com", key, is, meta));
+                }
+                else
+                {
+                    s3client.createBucket("csye6225-fall2017-csye-parakh.com");
+                    s3client.putObject(new PutObjectRequest("csye6225-fall2017-csye-parakh.com", key, is, meta));
+>>>>>>> b7886aac11bd9c4cf3e181e3ea12d889331101ac
                 }
 
 //        File trans = new File("/home/snigdha/"+file.getOriginalFilename());
@@ -506,6 +516,7 @@ public class TaskController {
 
 //                    AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());
                     AmazonS3 s3client = new AmazonS3Client(DefaultAWSCredentialsProviderChain.getInstance());
+<<<<<<< HEAD
                    // ObjectListing objectListing = s3client.listObjects("csye6225-fall2017-csye-nasp.com");
                     //AmazonS3 s3client = new AmazonS3Client(DefaultAWSCredentialsProviderChain.getInstance());
                    // ObjectListing objectListing = s3client.listObjects("csye6225nasp");
@@ -516,10 +527,14 @@ public class TaskController {
                       //      s3client.deleteObject("csye6225nasp", nn.getContent());
 
                     ObjectListing objectListing = s3client.listObjects("csye6225-fall2017-csye-nasp.com");
+=======
+                    ObjectListing objectListing = s3client.listObjects("csye6225-fall2017-csye-parakh.com");
+>>>>>>> b7886aac11bd9c4cf3e181e3ea12d889331101ac
 
                //     AmazonS3 s3client = new AmazonS3Client(DefaultAWSCredentialsProviderChain.getInstance());
                //     ObjectListing objectListing = s3client.listObjects("csye6225nasp");
                   //  while (true) {
+<<<<<<< HEAD
                //         for (Iterator<?> iterator = objectListing.getObjectSummaries().iterator();
                  //            iterator.hasNext(); ) {
                    //         S3ObjectSummary summary = (S3ObjectSummary) iterator.next();
@@ -535,6 +550,17 @@ public class TaskController {
                         jobj.addProperty("url", ads.get(0).getContent());
                         jsonArray.add(jobj);
                     }
+=======
+                        for (Iterator<?> iterator = objectListing.getObjectSummaries().iterator();
+                             iterator.hasNext(); ) {
+                            S3ObjectSummary summary = (S3ObjectSummary) iterator.next();
+                            s3client.deleteObject("csye6225-fall2017-csye-parakh.com", nn.getContent());
+
+                            jobj.addProperty("id", String.valueOf(ads.get(0).getAttachId()));
+                            jobj.addProperty("url", ads.get(0).getContent());
+                            jsonArray.add(jobj);
+                        }
+>>>>>>> b7886aac11bd9c4cf3e181e3ea12d889331101ac
                     //}
 
 
