@@ -502,7 +502,7 @@ public class TaskController {
                     nn.setContent(ads.get(0).getContent());
                     nn.setAttachId(ads.get(0).getAttachId());
                     attachmentDao.delete(nn);
-
+//Added the file
 
 //                    AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());
                     AmazonS3 s3client = new AmazonS3Client(DefaultAWSCredentialsProviderChain.getInstance());
