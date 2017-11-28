@@ -22,9 +22,9 @@ import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import com.csye6225.demo.dao.PersonDao;
 import com.csye6225.demo.dao.TaskDao;
-import com.csye6225.demo.entity.Customer;
+
 import com.csye6225.demo.entity.Person;
-import com.csye6225.demo.entity.ProductInfo;
+
 import com.csye6225.demo.entity.Task;
 import com.google.gson.JsonObject;
 import org.slf4j.Logger;
@@ -129,14 +129,14 @@ public class HomeController {
     long now = Instant.now().getEpochSecond(); // unix time
     long ttl = 20 * 60 ; // 24 hours in sec
 
-    ProductInfo c = new ProductInfo();
-    c.setId(String.valueOf(200));
-    c.setCost("1550");
-    c.setMsrp("1750");
-    c.setTtl(ttl + now);
+//    ProductInfo c = new ProductInfo();
+//    c.setId(String.valueOf(200));
+//    c.setCost("1550");
+//    c.setMsrp("1750");
+//    c.setTtl(ttl + now);
 
 
-    mapper.save(c);
+//    mapper.save(c);
 
     JsonObject jsonObject = new JsonObject();
 
@@ -258,20 +258,20 @@ public class HomeController {
 //    return jsonObject.toString();
 //
 //  }
-  public void dynamoCreation(){
-
-//    AmazonDynamoDB client = AmazonDynamoDBClientBuilder;
-    dynamoDBMapper = new DynamoDBMapper(amazonDynamoDB);
-
-    System.out.println("THE AMA IS :     " +amazonDynamoDB);
-
-
-    CreateTableRequest tableRequest = dynamoDBMapper
-            .generateCreateTableRequest(Customer.class);
-    tableRequest.setProvisionedThroughput(
-            new ProvisionedThroughput(1L, 1L));
-    amazonDynamoDB.createTable(tableRequest);
-  }
+//  public void dynamoCreation(){
+//
+////    AmazonDynamoDB client = AmazonDynamoDBClientBuilder;
+//    dynamoDBMapper = new DynamoDBMapper(amazonDynamoDB);
+//
+//    System.out.println("THE AMA IS :     " +amazonDynamoDB);
+//
+//
+//    CreateTableRequest tableRequest = dynamoDBMapper
+//            .generateCreateTableRequest(Customer.class);
+//    tableRequest.setProvisionedThroughput(
+//            new ProvisionedThroughput(1L, 1L));
+//    amazonDynamoDB.createTable(tableRequest);
+//  }
 
   @RequestMapping(value = "/forgot-password", method = RequestMethod.POST, produces = "application/json")
   @ResponseBody
